@@ -1,0 +1,34 @@
+{
+  "name": "ADC_SPI",
+  "description": "ADC per SPI input",
+  "meta": {"any":"key", "kind":"dummy"},
+  "ttl": 30,
+  "resources": [
+    {
+      "type": "Resource",
+      "name": "adcvalue",
+      "meta": {},
+      "agent": {
+        "type": "service",
+        "dir": null,
+        "exec": "python /home/pi/iot_class/mcp3008-localconnect.py"
+      },
+      "representation": {
+        "text/plain": {
+          "type": "number"
+        }
+      },
+      "protocols": [
+        {
+          "type": "REST",
+          "methods": [
+            "GET"
+          ],
+          "content-types": [
+            "application/json"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -2,9 +2,10 @@ import paho.mqtt.client as mqtt
 import os, sys, urlparse, time
 import paho.mqtt.publish as publish
 from random import randint
-import pydht
+import Adafruit_DHT
+#import pydht
 
-brokerUrl = "192.76.241.164"
+brokerUrl = "test.mosquitto.org"
 topicTemp = "groupD/temperature"
 # topicVolt = "groupD/voltage"
 topicShut = "groupD/shutdown"
@@ -20,7 +21,8 @@ topicShut = "groupD/shutdown"
 # 	return(resFormat)
 
 def getDHTTemperature():
-	return pydht.get(board_mode='BOARD', pin=4)
+	#return pydht.get(board_mode='BOARD', pin=4)
+	return Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 4)
 
 for i in range (1, 5):
 	# publish.single(topicVolt, str(getCPUVolt()), hostname = brokerUrl)

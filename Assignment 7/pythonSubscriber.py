@@ -1,7 +1,7 @@
 import paho.mqtt.client as mqtt
 import os, urlparse, sys
 
-brokerUrl = "192.76.241.164"
+brokerUrl = "test.mosquitto.org"
 topicTemp = "groupD/temperature"
 # topicVolt = "groupD/voltage"
 topicShut = "groupD/shutdown"
